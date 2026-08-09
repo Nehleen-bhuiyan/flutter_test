@@ -30,6 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
     2,
     'Khulna City Medical College Hospital,KDA avenue',
   );
+  List<BloodDetails> bloodCardList = [
+    BloodDetails('O-', 3, 'Khulna City Medical College Hospital,KDA'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -64,10 +67,24 @@ class BloodCard extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.only(
+            left: 30,
+            top: 20,
+            bottom: 20,
+            right: 20,
+          ),
           margin: const EdgeInsets.only(left: 8),
+
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.2), // Shadow color
+                spreadRadius: 2, // Explodes the shadow size
+                blurRadius: 8, // Blurs the edges
+                offset: const Offset(0, 4), // Shifts shadow (x, y)
+              ),
+            ],
             color: Colors.white,
             border: Border.all(color: Colors.grey.shade200),
           ),
@@ -162,17 +179,17 @@ class BloodCard extends StatelessWidget {
         ),
 
         Positioned(
-          left: 10,
+          left: 8,
           top: 2,
           bottom: 2,
           child: Container(
-            width: 10,
+            width: 15,
 
             decoration: const BoxDecoration(
               color: Colors.red,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20),
               ),
             ),
           ),
